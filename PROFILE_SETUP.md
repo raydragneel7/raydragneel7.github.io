@@ -1,49 +1,58 @@
-# Cara Upload Sebagai GitHub Profile
+# Cara Upload Sebagai Website Statis / GitHub Pages
 
-Folder ini sudah disiapkan sebagai repository GitHub Profile.
+Folder ini sudah disiapkan sebagai versi statis dari halaman publik portfolio.
 
-## 1. Ganti Placeholder
+File utama:
 
-Buka `README.md`, lalu ganti semua:
+- `index.html`
+- `assets/css/styles.css`
+- `assets/js/app.js`
+- `assets/logo.svg`
 
-```text
-YOUR_GITHUB_USERNAME
-```
+## 1. Edit Data Statis
 
-dengan username GitHub kamu.
-
-Jika perlu, ganti juga:
-
-```text
-Hera Developer
-hello@example.com
-https://linkedin.com/in/example
-```
-
-## 2. Buat Repository Di GitHub
-
-Buat repository baru dengan nama yang sama persis seperti username GitHub kamu.
-
-Contoh:
+Buka `assets/js/app.js`, lalu ganti data pada bagian:
 
 ```text
-username GitHub: heradev
-nama repository: heradev
+profile
+techGroups
+projects
+tutorials
 ```
 
-Pastikan repository dibuat sebagai `Public`.
+Di sana kamu bisa mengganti nama, email, link sosial media, daftar skill, proyek, tutorial, dan gambar.
 
-## 3. Upload Dari Terminal
+## 2. Buka Lokal
 
-Jalankan perintah ini dari folder `github-profile`:
+Untuk preview cepat, buka file ini di browser:
+
+```text
+index.html
+```
+
+## 3. Upload Ke GitHub Pages
+
+Buat repository baru di GitHub, lalu push isi folder ini.
+
+Jalankan dari folder `github-profile`:
 
 ```bash
-git init
 git add .
-git commit -m "Create GitHub profile README"
-git branch -M main
-git remote add origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_GITHUB_USERNAME.git
+git commit -m "Convert portfolio to static public site"
+git remote add origin https://github.com/YOUR_GITHUB_USERNAME/NAMA_REPOSITORY.git
 git push -u origin main
 ```
 
-Setelah berhasil, README ini akan muncul di halaman profil GitHub kamu.
+Buka repository GitHub:
+
+```text
+Settings > Pages > Build and deployment > Deploy from a branch
+```
+
+Pilih branch `main` dan folder `/root`.
+
+## Catatan
+
+Ini hanya halaman publik statis. Fitur admin, database, login, CKEditor, dan form email Laravel tidak ikut dibawa.
+
+Form contact di versi ini hanya menampilkan pesan lokal. Sambungkan ke layanan seperti Formspree, Netlify Forms, atau endpoint backend jika ingin benar-benar mengirim email.

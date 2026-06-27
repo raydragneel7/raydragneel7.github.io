@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">HeraPorto Logo</title>
+  <desc id="desc">A green HFPM monogram logo for the HeraPorto programmer portfolio.</desc>
+  <defs>
+    <linearGradient id="markGradient" x1="18" y1="10" x2="78" y2="86" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#86efac"/>
+      <stop offset="0.52" stop-color="#22c55e"/>
+      <stop offset="1" stop-color="#15803d"/>
+    </linearGradient>
+    <filter id="softGlow" x="-35%" y="-35%" width="170%" height="170%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.13 0 0 0 0 0.77 0 0 0 0 0.37 0 0 0 0.52 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="96" height="96" rx="24" fill="#030711"/>
+  <path d="M24 29c0-5.52 4.48-10 10-10h28c5.52 0 10 4.48 10 10v38c0 5.52-4.48 10-10 10H34c-5.52 0-10-4.48-10-10V29Z" fill="#06140c" stroke="url(#markGradient)" stroke-width="3" filter="url(#softGlow)"/>
+  <text x="48" y="43" text-anchor="middle" fill="#ecfdf5" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900" letter-spacing="-1">HF</text>
+  <text x="48" y="63" text-anchor="middle" fill="url(#markGradient)" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900" letter-spacing="-1">PM</text>
+  <path d="M22 79h52" stroke="#22c55e" stroke-width="4" stroke-linecap="round" opacity=".68"/>
+</svg>

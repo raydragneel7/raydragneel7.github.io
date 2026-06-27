@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hera Developer - Programmer Portfolio</title>
+  <meta name="description" content="Portfolio, programming tutorials, and YouTube learning playlists from a full-stack Laravel and React developer." />
+  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="./assets/js/app.js" defer></script>
+</head>
+<body>
+  <div class="site-loader site-loader--show" aria-hidden="true">
+    <div class="site-loader__panel">
+      <img src="./assets/logo.svg" alt="" class="site-loader__logo" />
+      <div class="site-loader__pulse"></div>
+      <p>Loading HFPM</p>
+      <div class="site-loader__progress"><span id="loader-progress"></span></div>
+      <strong id="loader-percent">8%</strong>
+    </div>
+  </div>
+
+  <div class="site-shell">
+    <header class="site-header">
+      <nav class="top-nav">
+        <a href="#home" class="brand" aria-label="HeraPorto home">
+          <img src="./assets/logo.svg" alt="HFPM logo" />
+          <span data-site-name>HeraPorto</span>
+        </a>
+        <button class="icon-button mobile-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+          <i data-lucide="menu"></i>
+        </button>
+        <div class="nav-links" data-nav-links></div>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <section id="home" class="portfolio-hero">
+        <div class="hero-glow hero-glow--one"></div>
+        <div class="hero-glow hero-glow--two"></div>
+        <div class="hero-content">
+          <div class="availability" data-availability></div>
+          <div class="avatar-wrap">
+            <div class="avatar-glow"></div>
+            <img class="avatar" data-profile-image alt="Programmer profile" />
+          </div>
+          <h1 data-profile-name></h1>
+          <p class="hero-headline" data-profile-headline></p>
+          <div class="skill-pills" data-skills></div>
+          <div class="hero-actions">
+            <a href="#projects" class="button button-primary"><i data-lucide="folder-git-2"></i> My Projects</a>
+            <a href="#contact" class="button button-ghost"><i data-lucide="mail"></i> Contact Me</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <h2 data-about-title></h2>
+        <div class="about-grid">
+          <article class="panel">
+            <div class="small-photo"><img data-profile-image-clone alt="" /></div>
+            <h3><i data-lucide="code-2"></i><span data-intro-title></span></h3>
+            <p data-profile-bio></p>
+          </article>
+          <article class="panel">
+            <div class="planet-art"><div></div></div>
+            <h3><i data-lucide="globe-2"></i><span data-collab-title></span></h3>
+            <p data-collab-text></p>
+          </article>
+          <div class="stacked-panels">
+            <article class="panel">
+              <h3><i data-lucide="shield-check"></i><span data-why-title></span></h3>
+              <p data-why-text></p>
+            </article>
+            <article class="panel">
+              <h3><i data-lucide="mail"></i><span>Contact</span></h3>
+              <a data-email-link></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <h2 data-tech-title></h2>
+        <p class="section-copy" data-tech-description></p>
+        <div class="tech-groups" data-tech-groups></div>
+      </section>
+
+      <section id="projects" class="section projects-section">
+        <div class="section-center">
+          <h2><i data-lucide="folder-git-2"></i><span data-projects-title></span></h2>
+          <p data-projects-description></p>
+        </div>
+        <div class="project-slider" data-project-slider></div>
+      </section>
+
+      <section id="tutorials" class="section">
+        <div class="tutorial-panel">
+          <div class="section-row">
+            <h2><i data-lucide="book-open"></i><span data-tutorials-title></span></h2>
+            <a href="#tutorials">View all</a>
+          </div>
+          <div class="tutorial-grid" data-tutorials></div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="contact-window">
+          <div class="window-dots"><span></span><span></span><span></span></div>
+          <div class="contact-grid">
+            <div>
+              <h2 data-contact-title></h2>
+              <p data-contact-description></p>
+              <div class="contact-card">
+                <strong><i data-lucide="mail"></i> Email</strong>
+                <a data-email-link-clone></a>
+              </div>
+              <div class="social-area">
+                <strong>Social Media</strong>
+                <div class="social-links" data-social-links></div>
+              </div>
+            </div>
+            <form class="contact-form" data-contact-form>
+              <label>Full Name<input name="name" placeholder="Your name" required /></label>
+              <label>Email<input name="email" type="email" placeholder="you@example.com" required /></label>
+              <label>Subject<input name="subject" placeholder="Project inquiry" required /></label>
+              <label>Message<textarea name="message" placeholder="Tell me about your project" required></textarea></label>
+              <button class="button button-light" type="submit"><i data-lucide="mail"></i> Send Message</button>
+              <p class="form-note" data-form-note></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-line"></div>
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="./assets/logo.svg" alt="HFPM logo" />
+            <div>
+              <strong data-footer-site-name>HeraPorto</strong>
+              <span>Programmer Portfolio</span>
+            </div>
+          </div>
+          <p data-footer-description></p>
+        </div>
+        <div>
+          <strong>Quick Links</strong>
+          <div class="footer-links" data-footer-nav></div>
+        </div>
+        <div>
+          <strong>Connect</strong>
+          <div class="footer-social" data-footer-social></div>
+          <a class="footer-email" data-footer-email></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Copyright <span data-year></span> HFPM. All rights reserved.</span>
+        <span>Static public page converted from Laravel, Inertia, React, and Tailwind CSS.</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
