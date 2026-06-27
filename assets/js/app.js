@@ -165,7 +165,7 @@ function qsa(selector) {
 
 function icon(name) {
   const folder = brandIconNames.has(name) ? "brands" : "lucide";
-  return `<span class="site-icon" aria-hidden="true" style="--icon-url: url('./assets/icons/${folder}/${name}.svg')"></span>`;
+  return `<img class="site-icon" src="./assets/icons/${folder}/${name}.svg" alt="" aria-hidden="true" loading="lazy" />`;
 }
 
 function techIcon(name) {
@@ -175,7 +175,7 @@ function techIcon(name) {
     return `<span class="tech-icon tech-icon-text" aria-hidden="true">&lt;/&gt;</span>`;
   }
 
-  return `<span class="tech-icon" aria-hidden="true" style="--icon-url: url('./assets/icons/${iconPath}')"></span>`;
+  return `<img class="tech-icon" src="./assets/icons/${iconPath}" alt="" aria-hidden="true" loading="lazy" />`;
 }
 
 function setText(selector, value) {
@@ -412,11 +412,13 @@ function refreshIcons() {
   qsa("i[data-lucide]").forEach((element) => {
     const name = element.dataset.lucide;
     const folder = brandIconNames.has(name) ? "brands" : "lucide";
-    const replacement = document.createElement("span");
+    const replacement = document.createElement("img");
 
     replacement.className = "site-icon";
+    replacement.src = `./assets/icons/${folder}/${name}.svg`;
+    replacement.alt = "";
+    replacement.loading = "lazy";
     replacement.setAttribute("aria-hidden", "true");
-    replacement.style.setProperty("--icon-url", `url('./assets/icons/${folder}/${name}.svg')`);
     element.replaceWith(replacement);
   });
 }
