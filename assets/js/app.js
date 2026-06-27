@@ -125,29 +125,31 @@ const navItems = [
   { href: "#tutorials", label: "Tutorials", icon: "book-open" },
 ];
 
+const brandIconNames = new Set(["github", "linkedin"]);
+
 const techIconMap = {
-  JavaScript: "JS",
-  PHP: "PHP",
-  SQL: "DB",
-  HTML5: "H5",
-  CSS3: "CSS",
-  React: "⚛",
-  "Inertia.js": "I",
-  Inertia: "I",
-  Tailwind: "TW",
-  Vite: "V",
-  Laravel: "L",
-  MySQL: "MY",
-  SQLite: "SQL",
-  Git: "Git",
-  GitHub: "GH",
-  Vercel: "▲",
-  Laragon: "Lg",
-  Queues: "Q",
-  "REST API": "API",
-  Auth: "A",
-  "Schema Design": "SD",
-  Automation: "AI",
+  JavaScript: "brands/javascript.svg",
+  PHP: "brands/php.svg",
+  SQL: "lucide/database.svg",
+  HTML5: "brands/html5.svg",
+  CSS3: "brands/css.svg",
+  React: "brands/react.svg",
+  "Inertia.js": "brands/inertia.svg",
+  Inertia: "brands/inertia.svg",
+  Tailwind: "brands/tailwindcss.svg",
+  Vite: "brands/vite.svg",
+  Laravel: "brands/laravel.svg",
+  MySQL: "brands/mysql.svg",
+  SQLite: "brands/sqlite.svg",
+  Git: "brands/git.svg",
+  GitHub: "brands/github.svg",
+  Vercel: "brands/vercel.svg",
+  Laragon: "lucide/box.svg",
+  Queues: "lucide/workflow.svg",
+  "REST API": "lucide/network.svg",
+  Auth: "lucide/key-round.svg",
+  "Schema Design": "lucide/server.svg",
+  Automation: "lucide/cpu.svg",
 };
 
 let activeProject = 0;
@@ -162,11 +164,18 @@ function qsa(selector) {
 }
 
 function icon(name) {
-  return `<i data-lucide="${name}"></i>`;
+  const folder = brandIconNames.has(name) ? "brands" : "lucide";
+  return `<span class="site-icon" aria-hidden="true" style="--icon-url: url('./assets/icons/${folder}/${name}.svg')"></span>`;
 }
 
 function techIcon(name) {
-  return `<span class="tech-icon" aria-hidden="true">${techIconMap[name] || "&lt;/&gt;"}</span>`;
+  const iconPath = techIconMap[name];
+
+  if (!iconPath) {
+    return `<span class="tech-icon tech-icon-text" aria-hidden="true">&lt;/&gt;</span>`;
+  }
+
+  return `<span class="tech-icon" aria-hidden="true" style="--icon-url: url('./assets/icons/${iconPath}')"></span>`;
 }
 
 function setText(selector, value) {
@@ -400,9 +409,16 @@ function setupLoader() {
 }
 
 function refreshIcons() {
-  if (window.lucide) {
-    window.lucide.createIcons();
-  }
+  qsa("i[data-lucide]").forEach((element) => {
+    const name = element.dataset.lucide;
+    const folder = brandIconNames.has(name) ? "brands" : "lucide";
+    const replacement = document.createElement("span");
+
+    replacement.className = "site-icon";
+    replacement.setAttribute("aria-hidden", "true");
+    replacement.style.setProperty("--icon-url", `url('./assets/icons/${folder}/${name}.svg')`);
+    element.replaceWith(replacement);
+  });
 }
 
 function init() {

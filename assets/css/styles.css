@@ -124,12 +124,20 @@ textarea {
   color: #fff;
 }
 
-.nav-links svg,
-.button svg,
-h2 svg,
-h3 svg {
+.site-icon {
+  display: inline-block;
   width: 1rem;
   height: 1rem;
+  flex: 0 0 auto;
+  background: currentColor;
+  mask: var(--icon-url) center / contain no-repeat;
+  -webkit-mask: var(--icon-url) center / contain no-repeat;
+}
+
+.nav-links .site-icon,
+.button .site-icon,
+h2 .site-icon,
+h3 .site-icon {
   color: var(--green-soft);
   flex: 0 0 auto;
 }
@@ -302,10 +310,24 @@ h1 {
 .tech-icon {
   display: inline-grid;
   place-items: center;
-  min-width: 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 auto;
   color: var(--green-soft);
+  background: currentColor;
+  mask: var(--icon-url) center / contain no-repeat;
+  -webkit-mask: var(--icon-url) center / contain no-repeat;
   font-size: 1rem;
   font-weight: 900;
+}
+
+.tech-icon-text {
+  width: auto;
+  min-width: 1.25rem;
+  height: auto;
+  background: transparent;
+  mask: none;
+  -webkit-mask: none;
 }
 
 .hero-actions {
@@ -518,7 +540,8 @@ h1 {
 }
 
 .tech-tile .tech-icon {
-  font-size: 1.75rem;
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 .section-center {
