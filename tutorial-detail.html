@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tutorial Detail - Raydragneel</title>
+  <meta name="description" content="Programming tutorial detail by Raydragneel." />
+  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <script src="./assets/js/app.js" defer></script>
+</head>
+<body data-page-title="Tutorial Detail">
+  <div class="site-loader site-loader--show" aria-hidden="true">
+    <div class="site-loader__panel">
+      <img src="./assets/logo.svg" alt="" class="site-loader__logo" />
+      <div class="site-loader__pulse"></div>
+      <p>Loading HFPM</p>
+      <div class="site-loader__progress"><span id="loader-progress"></span></div>
+      <strong id="loader-percent">8%</strong>
+    </div>
+  </div>
+
+  <div class="site-shell">
+    <header class="site-header">
+      <nav class="top-nav">
+        <a href="./index.html#home" class="brand" aria-label="HeraPorto home">
+          <img src="./assets/logo.svg" alt="HFPM logo" />
+          <span data-site-name>HeraPorto</span>
+        </a>
+        <button class="icon-button mobile-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+          <img class="site-icon" src="./assets/icons/lucide/menu.svg" alt="" aria-hidden="true" loading="lazy" />
+        </button>
+        <div class="nav-links" data-nav-links></div>
+      </nav>
+    </header>
+
+    <main class="page-shell subpage-shell">
+      <section class="page-hero">
+        <a class="back-link" href="./tutorials.html"><img class="site-icon" src="./assets/icons/lucide/chevron-left.svg" alt="" aria-hidden="true" loading="lazy" /> Back to tutorials</a>
+      </section>
+      <section class="section detail-section" data-tutorial-detail></section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-line"></div>
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="./assets/logo.svg" alt="HFPM logo" />
+            <div>
+              <strong data-footer-site-name>Raydragneel</strong>
+              <span>Full Stack Programmer Website & Mobile</span>
+            </div>
+          </div>
+          <p data-footer-description></p>
+        </div>
+        <div>
+          <strong>Quick Links</strong>
+          <div class="footer-links" data-footer-nav></div>
+        </div>
+        <div>
+          <strong>Connect</strong>
+          <div class="footer-social" data-footer-social></div>
+          <a class="footer-email" data-footer-email></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Copyright <span data-year></span> HFPM. All rights reserved.</span>
+        <span>Build With Love by Me.</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

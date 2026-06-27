@@ -5,6 +5,10 @@ Versi statis dari halaman publik project HeraPorto.
 Project Laravel/Inertia aslinya sudah dikonversi menjadi file statis:
 
 - `index.html`
+- `projects.html`
+- `tutorials.html`
+- `project-detail.html`
+- `tutorial-detail.html`
 - `assets/css/styles.css`
 - `assets/js/app.js`
 - `assets/logo.svg`

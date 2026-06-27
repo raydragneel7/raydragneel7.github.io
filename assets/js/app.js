@@ -45,6 +45,8 @@ const projects = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80&fm=webp",
     repoUrl: "https://github.com/example/laravel-commerce-dashboard",
     demoUrl: "https://example.com",
+    overview: "A Laravel-based commerce dashboard focused on clear daily operations for catalog, order, and revenue teams.",
+    features: ["Order pipeline monitoring", "Catalog and inventory controls", "Revenue overview cards", "Role-ready admin layout"],
   },
   {
     title: "YouTube Learning Hub",
@@ -54,6 +56,8 @@ const projects = [
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80&fm=webp",
     repoUrl: "https://github.com/example/youtube-learning-hub",
     demoUrl: "https://example.com",
+    overview: "A structured learning hub for grouping programming videos into playlists, topics, and guided study paths.",
+    features: ["Playlist-focused content layout", "Active lesson preview", "Progress-friendly navigation", "Reusable course sections"],
   },
   {
     title: "SaaS Billing Portal",
@@ -63,6 +67,8 @@ const projects = [
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80&fm=webp",
     repoUrl: "https://github.com/example/saas-billing-portal",
     demoUrl: "https://example.com",
+    overview: "A billing portal concept for SaaS teams that need a cleaner way to manage subscriptions, plans, and invoices.",
+    features: ["Subscription summary panels", "Invoice history", "Plan change workflow", "Admin reporting surface"],
   },
   {
     title: "Realtime Support Desk",
@@ -72,6 +78,8 @@ const projects = [
     image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80&fm=webp",
     repoUrl: "https://github.com/example/realtime-support-desk",
     demoUrl: "https://example.com",
+    overview: "A support desk interface for handling customer tickets, internal notes, and fast team handoffs.",
+    features: ["Ticket queue view", "Status and priority tracking", "Internal note area", "Customer context panel"],
   },
   {
     title: "Inventory Control System",
@@ -81,6 +89,8 @@ const projects = [
     image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80&fm=webp",
     repoUrl: "https://github.com/example/inventory-control-system",
     demoUrl: "https://example.com",
+    overview: "A warehouse-oriented inventory system for stock movement, purchasing records, and audit-friendly reporting.",
+    features: ["Stock movement tracking", "Purchase record screens", "Warehouse activity logs", "Low-stock visibility"],
   },
   {
     title: "Agency Portfolio CMS",
@@ -90,6 +100,8 @@ const projects = [
     image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80&fm=webp",
     repoUrl: "https://github.com/example/agency-portfolio-cms",
     demoUrl: "https://example.com",
+    overview: "A CMS concept for agencies that need to publish case studies, service pages, and portfolio content quickly.",
+    features: ["Case study publishing", "Reusable page sections", "Media-ready content model", "Clean public portfolio layout"],
   },
 ];
 
@@ -100,6 +112,9 @@ const tutorials = [
     excerpt: "A short guide to keeping Laravel controllers readable while business rules grow.",
     thumbnail: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80&fm=webp",
     type: "Article",
+    slug: "clean-laravel-controller-pattern",
+    body: ["Keep controllers thin by moving business decisions into dedicated services or action classes.", "Validate inputs early, call one focused workflow, then return a response that is easy to test.", "This pattern keeps routes readable while the application grows."],
+    steps: ["Create a form request for validation", "Move business logic into an action class", "Return resources or views from the controller"],
   },
   {
     title: "Build Inertia Pages With React",
@@ -107,6 +122,9 @@ const tutorials = [
     excerpt: "How to structure Inertia React pages, shared props, and layouts.",
     thumbnail: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80&fm=webp",
     type: "Article",
+    slug: "build-inertia-pages-with-react",
+    body: ["Inertia pages work best when page components stay focused on layout and interaction.", "Shared props should carry repeated app state, while page props should stay specific to the screen.", "A predictable layout structure makes the React side easier to maintain."],
+    steps: ["Define a shared layout", "Pass page props from the controller", "Split complex UI into local components"],
   },
   {
     title: "YouTube Playlist Player UI",
@@ -114,15 +132,18 @@ const tutorials = [
     excerpt: "Build a playlist-style YouTube player with a selectable active video.",
     thumbnail: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80&fm=webp",
     type: "Video",
+    slug: "youtube-playlist-player-ui",
+    body: ["A playlist-style UI helps learners move through video content without losing context.", "The active video, playlist queue, and progress state should be visible together.", "This tutorial focuses on a practical interface structure that can be connected to YouTube embeds."],
+    steps: ["Render the playlist list", "Track the active video state", "Update the player when an item is selected"],
   },
 ];
 
 const navItems = [
-  { href: "#home", label: "Home", icon: "home" },
-  { href: "#about", label: "About", icon: "code-2" },
-  { href: "#skills", label: "Tech Stack", icon: "layers" },
-  { href: "#projects", label: "Projects", icon: "folder-git-2" },
-  { href: "#tutorials", label: "Tutorials", icon: "book-open" },
+  { href: "./index.html#home", label: "Home", icon: "home" },
+  { href: "./index.html#about", label: "About", icon: "code-2" },
+  { href: "./index.html#skills", label: "Tech Stack", icon: "layers" },
+  { href: "./projects.html", label: "Projects", icon: "folder-git-2" },
+  { href: "./tutorials.html", label: "Tutorials", icon: "book-open" },
 ];
 
 const brandIconNames = new Set(["github", "linkedin"]);
@@ -197,12 +218,16 @@ function renderNav() {
     </a>
   `).join("");
 
-  qs("[data-nav-links]").innerHTML = html;
-  qs("[data-footer-nav]").innerHTML = html;
+  const navLinks = qs("[data-nav-links]");
+  const footerNav = qs("[data-footer-nav]");
+
+  if (navLinks) navLinks.innerHTML = html;
+  if (footerNav) footerNav.innerHTML = html;
 }
 
 function renderProfile() {
-  document.title = `${profile.name} - Programmer Portfolio`;
+  const pageTitle = document.body.dataset.pageTitle;
+  document.title = pageTitle ? `${pageTitle} - ${profile.name}` : `${profile.name} - Programmer Portfolio`;
   setText("[data-site-name]", profile.siteName);
   setText("[data-footer-site-name]", profile.siteName);
   setText("[data-profile-name]", profile.name);
@@ -228,15 +253,22 @@ function renderProfile() {
     image.src = profile.profileImage;
   });
 
-  qs("[data-availability]").innerHTML = `
-    <span></span>
-    ${icon("badge-check")}
-    ${profile.isAvailable ? "Available" : "Unavailable"}
-  `;
+  const availability = qs("[data-availability]");
+  const skills = qs("[data-skills]");
 
-  qs("[data-skills]").innerHTML = profile.skills.map((skill) => `
-    <span class="pill">${techIcon(skill)}<span>${skill}</span></span>
-  `).join("");
+  if (availability) {
+    availability.innerHTML = `
+      <span></span>
+      ${icon("badge-check")}
+      ${profile.isAvailable ? "Available" : "Unavailable"}
+    `;
+  }
+
+  if (skills) {
+    skills.innerHTML = profile.skills.map((skill) => `
+      <span class="pill">${techIcon(skill)}<span>${skill}</span></span>
+    `).join("");
+  }
 
   const mailto = `mailto:${profile.email}`;
   qsa("[data-email-link], [data-email-link-clone], [data-footer-email]").forEach((element) => {
@@ -245,7 +277,10 @@ function renderProfile() {
 }
 
 function renderTechGroups() {
-  qs("[data-tech-groups]").innerHTML = techGroups.map((group) => `
+  const container = qs("[data-tech-groups]");
+  if (!container) return;
+
+  container.innerHTML = techGroups.map((group) => `
     <article class="tech-group">
       <h3>${icon(group.icon)} ${group.name}</h3>
       <div class="tech-items">
@@ -261,10 +296,13 @@ function renderTechGroups() {
 }
 
 function renderProject() {
+  const slider = qs("[data-project-slider]");
+  if (!slider) return;
+
   const project = projects[activeProject];
-  qs("[data-project-slider]").innerHTML = `
+  slider.innerHTML = `
     <div class="project-card">
-      <a class="project-image" href="${project.demoUrl}" target="_blank" rel="noreferrer">
+      <a class="project-image" href="./project-detail.html?slug=${project.slug}">
         <img src="${project.image}" alt="${project.title}" />
       </a>
       <div class="project-content">
@@ -274,7 +312,7 @@ function renderProject() {
         <div class="project-stack">
           ${project.stack.map((item) => `<span class="tech-badge">${techIcon(item)} ${item}</span>`).join("")}
         </div>
-        <a class="project-link" href="${project.repoUrl}" target="_blank" rel="noreferrer">${icon("external-link")} View case study</a>
+        <a class="project-link" href="./project-detail.html?slug=${project.slug}">${icon("external-link")} View case study</a>
       </div>
     </div>
     <div class="slider-controls">
@@ -317,6 +355,8 @@ function previousProject() {
 }
 
 function restartCarousel() {
+  if (!qs("[data-project-slider]")) return;
+
   window.clearInterval(carouselTimer);
   carouselTimer = window.setInterval(() => {
     activeProject = (activeProject + 1) % projects.length;
@@ -326,16 +366,154 @@ function restartCarousel() {
 }
 
 function renderTutorials() {
-  qs("[data-tutorials]").innerHTML = tutorials.map((tutorial) => `
+  const container = qs("[data-tutorials]");
+  if (!container) return;
+
+  container.innerHTML = tutorials.map((tutorial) => `
     <article class="tutorial-card">
-      <img src="${tutorial.thumbnail}" alt="${tutorial.title}" />
+      <a href="./tutorial-detail.html?slug=${tutorial.slug}">
+        <img src="${tutorial.thumbnail}" alt="${tutorial.title}" />
+      </a>
       <div>
         <span class="category">${icon(tutorial.type === "Video" ? "play-square" : "book-open")} ${tutorial.category}</span>
         <h3>${tutorial.title}</h3>
         <p>${tutorial.excerpt}</p>
+        <a class="project-link" href="./tutorial-detail.html?slug=${tutorial.slug}">${icon("external-link")} Read detail</a>
       </div>
     </article>
   `).join("");
+}
+
+function renderProjectsPage() {
+  const container = qs("[data-project-list]");
+  if (!container) return;
+
+  container.innerHTML = projects.map((project, index) => `
+    <article class="listing-card">
+      <a class="listing-image" href="./project-detail.html?slug=${project.slug}">
+        <img src="${project.image}" alt="${project.title}" loading="lazy" />
+      </a>
+      <div class="listing-content">
+        <span class="project-index">${icon("folder-git-2")} Project ${index + 1}</span>
+        <h2>${project.title}</h2>
+        <p>${project.summary}</p>
+        <div class="project-stack">
+          ${project.stack.map((item) => `<span class="tech-badge">${techIcon(item)} ${item}</span>`).join("")}
+        </div>
+        <div class="listing-actions">
+          <a class="project-link" href="./project-detail.html?slug=${project.slug}">${icon("external-link")} Detail</a>
+          <a class="project-link" href="${project.repoUrl}" target="_blank" rel="noreferrer">${icon("github")} Repository</a>
+          <a class="project-link" href="${project.demoUrl}" target="_blank" rel="noreferrer">${icon("external-link")} Live preview</a>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+function renderTutorialsPage() {
+  const container = qs("[data-tutorial-list]");
+  if (!container) return;
+
+  container.innerHTML = tutorials.map((tutorial) => `
+    <article class="listing-card tutorial-listing-card">
+      <a class="listing-image" href="./tutorial-detail.html?slug=${tutorial.slug}">
+        <img src="${tutorial.thumbnail}" alt="${tutorial.title}" loading="lazy" />
+      </a>
+      <div class="listing-content">
+        <span class="category">${icon(tutorial.type === "Video" ? "play-square" : "book-open")} ${tutorial.category}</span>
+        <h2>${tutorial.title}</h2>
+        <p>${tutorial.excerpt}</p>
+        <a class="project-link" href="./tutorial-detail.html?slug=${tutorial.slug}">${icon("external-link")} Read detail</a>
+      </div>
+    </article>
+  `).join("");
+}
+
+function getSlugParam() {
+  return new URLSearchParams(window.location.search).get("slug");
+}
+
+function renderNotFound(container, type, listUrl) {
+  container.innerHTML = `
+    <article class="detail-panel">
+      <h2>${type} not found</h2>
+      <p>The selected ${type.toLowerCase()} could not be found. Please return to the list and choose another item.</p>
+      <a class="button button-primary" href="${listUrl}">${icon("chevron-left")} Back to ${type}s</a>
+    </article>
+  `;
+}
+
+function renderProjectDetail() {
+  const container = qs("[data-project-detail]");
+  if (!container) return;
+
+  const project = projects.find((item) => item.slug === getSlugParam()) || projects[0];
+  if (!project) {
+    renderNotFound(container, "Project", "./projects.html");
+    return;
+  }
+
+  document.title = `${project.title} - ${profile.name}`;
+  container.innerHTML = `
+    <article class="detail-layout">
+      <div class="detail-media">
+        <img src="${project.image}" alt="${project.title}" />
+      </div>
+      <div class="detail-panel">
+        <span class="project-index">${icon("folder-git-2")} Project detail</span>
+        <h1>${project.title}</h1>
+        <p>${project.overview || project.summary}</p>
+        <div class="project-stack">
+          ${project.stack.map((item) => `<span class="tech-badge">${techIcon(item)} ${item}</span>`).join("")}
+        </div>
+        <div class="listing-actions">
+          <a class="project-link" href="${project.repoUrl}" target="_blank" rel="noreferrer">${icon("github")} Repository</a>
+          <a class="project-link" href="${project.demoUrl}" target="_blank" rel="noreferrer">${icon("external-link")} Live preview</a>
+        </div>
+      </div>
+    </article>
+    <article class="detail-panel">
+      <h2>Highlights</h2>
+      <ul class="detail-list">
+        ${(project.features || []).map((feature) => `<li>${feature}</li>`).join("")}
+      </ul>
+    </article>
+  `;
+}
+
+function renderTutorialDetail() {
+  const container = qs("[data-tutorial-detail]");
+  if (!container) return;
+
+  const tutorial = tutorials.find((item) => item.slug === getSlugParam()) || tutorials[0];
+  if (!tutorial) {
+    renderNotFound(container, "Tutorial", "./tutorials.html");
+    return;
+  }
+
+  document.title = `${tutorial.title} - ${profile.name}`;
+  container.innerHTML = `
+    <article class="detail-layout">
+      <div class="detail-media">
+        <img src="${tutorial.thumbnail}" alt="${tutorial.title}" />
+      </div>
+      <div class="detail-panel">
+        <span class="category">${icon(tutorial.type === "Video" ? "play-square" : "book-open")} ${tutorial.category}</span>
+        <h1>${tutorial.title}</h1>
+        <p>${tutorial.excerpt}</p>
+      </div>
+    </article>
+    <article class="detail-panel">
+      <h2>Overview</h2>
+      ${(tutorial.body || []).map((paragraph) => `<p>${paragraph}</p>`).join("")}
+    </article>
+    <article class="detail-panel">
+      <h2>Steps</h2>
+      <ol class="detail-list">
+        ${(tutorial.steps || []).map((step) => `<li>${step}</li>`).join("")}
+      </ol>
+    </article>
+  `;
 }
 
 function renderSocials() {
@@ -346,8 +524,11 @@ function renderSocials() {
     </a>
   `).join("");
 
-  qs("[data-social-links]").innerHTML = socialHtml;
-  qs("[data-footer-social]").innerHTML = profile.socialLinks.map((social) => `
+  const socialLinks = qs("[data-social-links]");
+  const footerSocial = qs("[data-footer-social]");
+
+  if (socialLinks) socialLinks.innerHTML = socialHtml;
+  if (footerSocial) footerSocial.innerHTML = profile.socialLinks.map((social) => `
     <a href="${social.url}" target="_blank" rel="noreferrer" aria-label="${social.label}">
       ${icon(social.icon || "globe-2")}
     </a>
@@ -357,6 +538,7 @@ function renderSocials() {
 function setupMenu() {
   const toggle = qs(".mobile-toggle");
   const nav = qs("[data-nav-links]");
+  if (!toggle || !nav) return;
 
   toggle.addEventListener("click", () => {
     const isOpen = nav.classList.toggle("is-open");
@@ -380,6 +562,8 @@ function setupLoader() {
   const loader = qs(".site-loader");
   const bar = qs("#loader-progress");
   const percent = qs("#loader-percent");
+  if (!loader || !bar || !percent) return;
+
   let progress = 8;
 
   const progressTimer = window.setInterval(() => {
@@ -417,6 +601,10 @@ function init() {
   renderTechGroups();
   renderProject();
   renderTutorials();
+  renderProjectsPage();
+  renderTutorialsPage();
+  renderProjectDetail();
+  renderTutorialDetail();
   renderSocials();
   setupMenu();
   setupLoader();
