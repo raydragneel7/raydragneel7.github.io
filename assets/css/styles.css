@@ -769,7 +769,7 @@ h1 {
 }
 
 .contact-section {
-  width: min(100%, 64rem);
+  width: min(100%, 48rem);
 }
 
 .contact-window {
@@ -796,12 +796,21 @@ h1 {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 2rem;
+  gap: 1.5rem;
+}
+
+.contact-info {
+  max-width: 42rem;
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
 .contact-card {
-  margin-top: 1.5rem;
   border: 1px solid var(--border);
   border-radius: 0.75rem;
   background: rgba(0, 0, 0, 0.2);
@@ -809,7 +818,10 @@ h1 {
 }
 
 .social-area {
-  margin-top: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
 }
 
 .social-links,
@@ -833,53 +845,6 @@ h1 {
 .social-button:hover {
   border-color: rgba(74, 222, 128, 0.65);
   color: #fff;
-}
-
-.contact-form {
-  display: grid;
-  gap: 1rem;
-}
-
-.contact-form label {
-  display: grid;
-  gap: 0.5rem;
-  color: #e4e4e7;
-  font-size: 0.9rem;
-  font-weight: 850;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 0.85rem 1rem;
-  color: #f4f4f5;
-  outline: none;
-  transition: border-color 180ms ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #4ade80;
-}
-
-.contact-form textarea {
-  min-height: 9rem;
-  resize: vertical;
-}
-
-.form-note {
-  display: none;
-  margin: 0;
-  color: #bbf7d0;
-  font-size: 0.86rem;
-  font-weight: 800;
-}
-
-.form-note.is-visible {
-  display: block;
 }
 
 .site-footer {
@@ -1108,6 +1073,7 @@ h1 {
   .about-grid,
   .project-card,
   .tutorial-grid,
+  .contact-methods,
   .contact-grid,
   .footer-grid {
     grid-template-columns: 1fr;

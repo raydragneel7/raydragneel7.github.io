@@ -24,7 +24,7 @@ const profile = {
   projectsDescription: "Projects that combine design, backend systems, and frontend experience.",
   tutorialsTitle: "Latest Tutorials",
   contactTitle: "Let us talk",
-  contactDescription: "Whether you need a new website, a CMS, or a cleaner Laravel platform, send a message directly from this site.",
+  contactDescription: "Whether you need a new website, a CMS, or a cleaner Laravel platform, reach me through email or social media.",
   footerDescription: "Laravel, Inertia, and React portfolio CMS built for projects, tutorials, and clean developer presentation.",
 };
 
@@ -376,18 +376,6 @@ function setupMenu() {
   });
 }
 
-function setupContactForm() {
-  const form = qs("[data-contact-form]");
-  const note = qs("[data-form-note]");
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    note.textContent = "Message captured locally. Connect this form to your email or form endpoint when deployed.";
-    note.classList.add("is-visible");
-    form.reset();
-  });
-}
-
 function setupLoader() {
   const loader = qs(".site-loader");
   const bar = qs("#loader-progress");
@@ -431,7 +419,6 @@ function init() {
   renderTutorials();
   renderSocials();
   setupMenu();
-  setupContactForm();
   setupLoader();
   restartCarousel();
   refreshIcons();
